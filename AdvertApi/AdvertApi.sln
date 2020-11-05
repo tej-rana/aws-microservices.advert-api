@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertApi", "AdvertApi.csproj", "{B77F800E-F0E5-4A3B-86AA-606BAAB7F5C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertApi.Models", "AdvertApi.Models\AdvertApi.Models.csproj", "{7454014D-B8CC-4B68-8F00-098F36034D01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B77F800E-F0E5-4A3B-86AA-606BAAB7F5C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B77F800E-F0E5-4A3B-86AA-606BAAB7F5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B77F800E-F0E5-4A3B-86AA-606BAAB7F5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B77F800E-F0E5-4A3B-86AA-606BAAB7F5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7454014D-B8CC-4B68-8F00-098F36034D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7454014D-B8CC-4B68-8F00-098F36034D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7454014D-B8CC-4B68-8F00-098F36034D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7454014D-B8CC-4B68-8F00-098F36034D01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

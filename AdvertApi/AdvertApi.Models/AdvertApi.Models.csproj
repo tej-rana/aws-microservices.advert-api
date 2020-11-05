@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Title>Web Advert Microservices</Title>
+        <Authors>Tej R</Authors>
+        <PackageProjectUrl>https://github.com/tej-rana/aws-microservices.advert-api</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/tej-rana/aws-microservices.advert-api</RepositoryUrl>
+        <Product>AdvertApi.Models</Product>
+        <PackageId>TinySnippt.AdvertApi.Models</PackageId>
+    </PropertyGroup>
+
+</Project>
