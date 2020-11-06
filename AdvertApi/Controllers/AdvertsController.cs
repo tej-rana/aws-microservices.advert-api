@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using AdvertApi.AdvertApi.Models;
+using AdvertApi.Models;
 using AdvertApi.Services;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,5 +1,5 @@
 using System;
-using AdvertApi.AdvertApi.Models;
+using AdvertApi.Models;
 using Amazon.DynamoDBv2.DataModel;
 
 namespace AdvertApi.Services

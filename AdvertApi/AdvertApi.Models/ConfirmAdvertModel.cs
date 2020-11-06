@@ -1,4 +1,4 @@
-namespace AdvertApi.AdvertApi.Models
+namespace AdvertApi.Models
 {
     public class ConfirmAdvertModel
     {

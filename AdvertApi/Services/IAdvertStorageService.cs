@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using AdvertApi.AdvertApi.Models;
+using AdvertApi.Models;
 
 namespace AdvertApi.Services
 {
