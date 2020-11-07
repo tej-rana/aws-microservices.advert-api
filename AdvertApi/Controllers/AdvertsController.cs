@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AdvertApi.Controllers
 {
     [ApiController]
-    [Route("api/v1/adverts")]
+    [Route("api/adverts/v1")]
     public class AdvertsController : ControllerBase
     {
         private readonly IAdvertStorageService _advertStorageService;
