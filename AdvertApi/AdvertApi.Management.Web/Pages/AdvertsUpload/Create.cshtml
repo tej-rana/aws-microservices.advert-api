@@ -1,0 +1,28 @@
+@model AdvertApi.Management.Web.Models.CreateAdvertViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="AdvertsUploadController" method="post" asp-action="Create" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control">
+                <span asp-validaton-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <input asp-for="Description" class="form-control">
+                <span asp-validaton-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" class="form-control">
+                <span asp-validaton-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="file" name="imageFile" value="Upload an image" />
+            </div>
+            <button type="submit" class="btn btn-default">Create</button>
+        </form>
+    </div>
+
+</div>
