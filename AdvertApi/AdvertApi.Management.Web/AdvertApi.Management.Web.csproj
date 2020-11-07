@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <PackageReference Include="AWSSDK.S3" Version="3.5.3.12" />
+      <PackageReference Include="TinySnippt.AdvertApi.Models" Version="1.0.0" />
     </ItemGroup>
 
 </Project>
