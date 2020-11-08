@@ -1,8 +1,10 @@
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using AdvertApi.Management.Web.Models;
 using AdvertApi.Models;
+using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
@@ -12,11 +14,13 @@ namespace AdvertApi.Management.Web.ServiceClients
     {
         private readonly IConfiguration _configuration;
         private readonly HttpClient _client;
+        private readonly IMapper _mapper;
 
-        public AdvertApiClient(IConfiguration configuration, HttpClient client)
+        public AdvertApiClient(IConfiguration configuration, HttpClient client, IMapper mapper)
         {
             _configuration = configuration;
             _client = client;
+            _mapper = mapper;
 
             var createUrl = _configuration.GetSection("AdvertApi").GetValue<string>("CreateUrl");
             _client.BaseAddress = new Uri(createUrl);
@@ -25,14 +29,24 @@ namespace AdvertApi.Management.Web.ServiceClients
         }
         public async Task<AdvertResponse> Create(CreateAdvertModel model)
         {
-            var advertApiModel = new AdvertModel(); //TODO: AutoMapper map
+            var advertApiModel = _mapper.Map<AdvertModel>(model);
             var jsonModel = JsonConvert.SerializeObject(advertApiModel);
-            var response = await _client.PostAsync(_client.BaseAddress, new StringContent(jsonModel));
+            var response = await _client.PostAsync(new Uri($"{_client.BaseAddress}/create"), new StringContent(jsonModel));
             var responseJson = await response.Content.ReadAsStringAsync();
             var createAdvertResponse = JsonConvert.DeserializeObject<CreateAdvertResponse>(responseJson);
-            var advertResponse = new AdvertResponse(); //TODO: AutoMapper map
+            var advertResponse = _mapper.Map<AdvertResponse>(createAdvertResponse); 
 
             return advertResponse;
+        }
+
+        public async Task<bool> Confirm(ConfirmAdvertRequest model)
+        {
+            var confirmApiModel = _mapper.Map<ConfirmAdvertRequest>(model);
+            var jsonModel = JsonConvert.SerializeObject(confirmApiModel);
+            var response =
+                await _client.PutAsync(new Uri($"{_client.BaseAddress}/confirm"), new StringContent(jsonModel));
+
+            return response.StatusCode == HttpStatusCode.OK;
         }
     }
 }
