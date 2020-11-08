@@ -12,17 +12,15 @@ namespace AdvertApi.Management.Web.ServiceClients
 {
     public class AdvertApiClient : IAdvertApiClient
     {
-        private readonly IConfiguration _configuration;
         private readonly HttpClient _client;
         private readonly IMapper _mapper;
 
         public AdvertApiClient(IConfiguration configuration, HttpClient client, IMapper mapper)
         {
-            _configuration = configuration;
             _client = client;
             _mapper = mapper;
 
-            var createUrl = _configuration.GetSection("AdvertApi").GetValue<string>("CreateUrl");
+            var createUrl = configuration.GetSection("AdvertApi").GetValue<string>("CreateUrl");
             _client.BaseAddress = new Uri(createUrl);
             _client.DefaultRequestHeaders.Add("Content-type", "application/json");
             
