@@ -8,11 +8,6 @@ using Microsoft.Extensions.Configuration;
 
 namespace AdvertApi.Management.Web.Services
 {
-    public interface IFileUploader
-    {
-        Task<bool> UploadFileAsync(string fileName, Stream storageStream);
-    }
-
     public class S3FileUploader : IFileUploader
     {
         private readonly IConfiguration _configuration;
