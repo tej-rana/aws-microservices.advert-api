@@ -9,6 +9,7 @@
       <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.5.1.7" />
       <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.101" />
       <PackageReference Include="Microsoft.AspNetCore.HealthChecks" Version="1.0.0" />
+      <PackageReference Include="TinySnippt.AdvertApi.Models" Version="1.0.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -49,10 +50,6 @@
       <_ContentIncludedByDefault Remove="AdvertApi.Models\obj\AdvertApi.Models.csproj.nuget.dgspec.json" />
       <_ContentIncludedByDefault Remove="AdvertApi.Models\obj\project.assets.json" />
       <_ContentIncludedByDefault Remove="AdvertApi.Models\obj\project.packagespec.json" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="AdvertApi.Models\AdvertApi.Models.csproj" />
     </ItemGroup>
 
 
