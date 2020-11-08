@@ -8,7 +8,7 @@
         <RepositoryUrl>https://github.com/tej-rana/aws-microservices.advert-api</RepositoryUrl>
         <Product>AdvertApi.Models</Product>
         <PackageId>TinySnippt.AdvertApi.Models</PackageId>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.2</PackageVersion>
     </PropertyGroup>
 
 </Project>

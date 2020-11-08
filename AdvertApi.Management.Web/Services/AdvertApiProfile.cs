@@ -11,6 +11,7 @@ namespace AdvertApi.Management.Web.Services
             CreateMap<AdvertModel, CreateAdvertModel>().ReverseMap();
             CreateMap<CreateAdvertResponse, AdvertResponse>().ReverseMap();
             CreateMap<ConfirmAdvertRequest, ConfirmAdvertModel>().ReverseMap();
+            CreateMap<CreateAdvertViewModel, CreateAdvertModel>().ReverseMap();
         }
     }
 }

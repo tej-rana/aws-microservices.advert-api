@@ -25,7 +25,7 @@ namespace AdvertApi.Management.Web.ServiceClients
             _client.DefaultRequestHeaders.Add("Content-type", "application/json");
             
         }
-        public async Task<AdvertResponse> Create(CreateAdvertModel model)
+        public async Task<AdvertResponse> CreateAsync(CreateAdvertModel model)
         {
             var advertApiModel = _mapper.Map<AdvertModel>(model);
             var jsonModel = JsonConvert.SerializeObject(advertApiModel);
@@ -37,7 +37,7 @@ namespace AdvertApi.Management.Web.ServiceClients
             return advertResponse;
         }
 
-        public async Task<bool> Confirm(ConfirmAdvertRequest model)
+        public async Task<bool> ConfirmAsync(ConfirmAdvertRequest model)
         {
             var confirmApiModel = _mapper.Map<ConfirmAdvertRequest>(model);
             var jsonModel = JsonConvert.SerializeObject(confirmApiModel);

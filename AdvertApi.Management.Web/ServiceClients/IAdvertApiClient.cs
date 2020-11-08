@@ -6,7 +6,7 @@ namespace AdvertApi.Management.Web.ServiceClients
 {
     public interface IAdvertApiClient
     {
-        Task<AdvertResponse> Create(CreateAdvertModel model);
-        Task<bool> Confirm(ConfirmAdvertRequest model);
+        Task<AdvertResponse> CreateAsync(CreateAdvertModel model);
+        Task<bool> ConfirmAsync(ConfirmAdvertRequest model);
     }
 }
