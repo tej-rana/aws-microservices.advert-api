@@ -41,14 +41,7 @@ namespace AdvertApi.Management.Web
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
-            services.AddCognitoIdentity(config =>
-            {
-                config.Password.RequiredLength = 6;
-                config.Password.RequireLowercase = false;
-                config.Password.RequireDigit = false;
-                config.Password.RequireUppercase = false;
-                config.Password.RequireNonAlphanumeric = false;
-            });
+           services.AddCognitoIdentity();
             
             services.ConfigureApplicationCookie(options =>
             {
@@ -89,6 +82,7 @@ namespace AdvertApi.Management.Web
             
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthorization();
             app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
