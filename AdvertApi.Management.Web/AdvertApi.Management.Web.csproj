@@ -5,6 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Amazon.AspNetCore.Identity.Cognito" Version="2.0.0" />
+      <PackageReference Include="Amazon.Extensions.CognitoAuthentication" Version="2.0.1" />
       <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
       <PackageReference Include="AWSSDK.S3" Version="3.5.3.12" />
       <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.9" />

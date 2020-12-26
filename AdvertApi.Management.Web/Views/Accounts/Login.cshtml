@@ -1,0 +1,34 @@
+@model AdvertApi.Management.Web.Models.Accounts.LoginModel
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>Login using your email and password</h4>
+        <h5>
+            <a asp-controller="Accounts" asp-action="Signup">
+                If you are not a member you can sign up here
+            </a>
+        </h5>
+        <hr>
+        <form method="post" asp-controller="Accounts" asp-action="Login">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input class="form-control" asp-for="Email"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input class="form-control" asp-for="Password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <input class="form-control" asp-for="RememberMe"/>
+                    @Html.DisplayName("Remember Me")
+                </div>
+            </div>
+            <button class="btn-primary btn" type="submit">Login</button>
+        </form>
+    </div>
+</div>
