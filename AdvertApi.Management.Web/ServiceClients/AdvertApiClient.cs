@@ -39,7 +39,7 @@ namespace AdvertApi.Management.Web.ServiceClients
 
         public async Task<bool> ConfirmAsync(ConfirmAdvertRequest model)
         {
-            var confirmApiModel = _mapper.Map<ConfirmAdvertRequest>(model);
+            var confirmApiModel = _mapper.Map<ConfirmAdvertModel>(model);
             var jsonModel = JsonConvert.SerializeObject(confirmApiModel);
             var response =
                 await _client.PutAsync(new Uri($"{_client.BaseAddress}/confirm"), new StringContent(jsonModel));
