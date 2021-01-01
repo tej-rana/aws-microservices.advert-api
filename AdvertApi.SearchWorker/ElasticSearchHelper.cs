@@ -13,7 +13,9 @@ namespace AdvertApi.SearchWorker
             if (_client == null)
             {
                 var url = config.GetSection("ES").GetValue<string>("url");
-                var settings = new ConnectionSettings(new Uri(url)).DefaultIndex("adverts");
+                var settings = new ConnectionSettings(new Uri(url))
+                    .DefaultIndex("adverts")
+                    .DefaultMappingFor<AdvertType>(m => m.IdProperty(x => x.Id));
                 _client = new ElasticClient(settings);
             }
 
