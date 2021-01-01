@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AdvertApi.Models;
-//using AdvertApi.Models.Messages;
+using AdvertApi.Models.Messages;
 using AdvertApi.Services;
 using Amazon.SimpleNotificationService;
 using Microsoft.AspNetCore.Mvc;
@@ -80,7 +80,11 @@ namespace AdvertApi.Controllers
             var dbModel = await _advertStorageService.GetByIdAsync(model.Id);
             using (var client = new AmazonSimpleNotificationServiceClient())
             {
-                var message = new object();
+                var message = new AdvertConfirmedMessage
+                {
+                    Id = model.Id,
+                    Title = dbModel.Title
+                };
 
                 var messageJson = JsonConvert.SerializeObject(message);
                 await client.PublishAsync(topicArn, messageJson);

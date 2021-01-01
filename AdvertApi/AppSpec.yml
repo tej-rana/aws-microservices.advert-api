@@ -1,5 +1,5 @@
 version: 0.0
 os: windows
 files:
-  - source: publish
+  - source: output
     destination: C:\inetpub\wwwroot

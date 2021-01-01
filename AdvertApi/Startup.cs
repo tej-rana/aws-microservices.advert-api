@@ -33,6 +33,7 @@ namespace AdvertApi
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IAdvertStorageService, DynamoDbAdvertStorage>();
             services.AddControllers();
+            services.AddSwaggerGen();
             services.AddHealthChecks().AddCheck<StorageHealthCheck>("Storage");
         }
 
@@ -44,7 +45,13 @@ namespace AdvertApi
                 app.UseDeveloperExceptionPage();
             }
 
-          //  app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
+            
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Adverts API V1");
+            });
 
             app.UseRouting();
 

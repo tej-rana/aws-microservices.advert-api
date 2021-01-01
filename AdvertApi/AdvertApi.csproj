@@ -10,7 +10,8 @@
       <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.101" />
       <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.5.1.6" />
       <PackageReference Include="Microsoft.AspNetCore.HealthChecks" Version="1.0.0" />
-      <PackageReference Include="TinySnippt.AdvertApi.Models" Version="1.0.2" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+      <PackageReference Include="TinySnippt.AdvertApi.Models" Version="1.0.3" />
     </ItemGroup>
 
     <ItemGroup>
@@ -51,6 +52,10 @@
       <_ContentIncludedByDefault Remove="AdvertApi.Models\obj\AdvertApi.Models.csproj.nuget.dgspec.json" />
       <_ContentIncludedByDefault Remove="AdvertApi.Models\obj\project.assets.json" />
       <_ContentIncludedByDefault Remove="AdvertApi.Models\obj\project.packagespec.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="output" />
     </ItemGroup>
 
 

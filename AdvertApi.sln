@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertApi.Models", "AdvertA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertApi.Management.Web", "AdvertApi.Management.Web\AdvertApi.Management.Web.csproj", "{F443714B-94FF-44FD-B7BA-9220F9DCE188}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertApi.SearchWorker", "AdvertApi.SearchWorker\AdvertApi.SearchWorker.csproj", "{FF2EA2E6-C13D-4B1D-ABD9-39FA4B1C06CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{F443714B-94FF-44FD-B7BA-9220F9DCE188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F443714B-94FF-44FD-B7BA-9220F9DCE188}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F443714B-94FF-44FD-B7BA-9220F9DCE188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF2EA2E6-C13D-4B1D-ABD9-39FA4B1C06CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF2EA2E6-C13D-4B1D-ABD9-39FA4B1C06CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF2EA2E6-C13D-4B1D-ABD9-39FA4B1C06CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF2EA2E6-C13D-4B1D-ABD9-39FA4B1C06CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

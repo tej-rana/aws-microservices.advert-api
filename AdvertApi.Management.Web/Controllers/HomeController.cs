@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AdvertApi.Management.Web.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -15,7 +14,10 @@ namespace AdvertApi.Management.Web.Controllers
         {
             _logger = logger;
         }
-
+        
+        //TODO: Fix issue with this later
+       // [Authorize]
+        [ResponseCache(Duration = 60)]
         public IActionResult Index()
         {
             return View();
