@@ -15,7 +15,6 @@ namespace AdvertApi.SearchWorker
                 {
                     _configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                         .AddJsonFile("appsettings.json").Build();
-                    
                 }
 
                 return _configuration;
