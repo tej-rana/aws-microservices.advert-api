@@ -6,6 +6,7 @@ using AdvertApi.Management.Web.ServiceClients;
 using AdvertApi.Management.Web.Services;
 using AdvertApi.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,8 @@ namespace AdvertApi.Management.Web.Controllers
             _mapper = mapper;
         }
 
+        //TODO: Fix issue with this later
+        // [Authorize]
         public IActionResult Create(CreateAdvertViewModel model)
         {
             return View(model);

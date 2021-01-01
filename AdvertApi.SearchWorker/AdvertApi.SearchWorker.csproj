@@ -17,4 +17,9 @@
       <PackageReference Include="TinySnippt.AdvertApi.Models" Version="1.0.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="appsettings.json" />
+      <EmbeddedResource Include="appsettings.json" />
+    </ItemGroup>
+
 </Project>

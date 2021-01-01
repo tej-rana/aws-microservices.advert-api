@@ -38,21 +38,23 @@ namespace AdvertApi.Management.Web
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            
+            services.AddCognitoIdentity();
+           
             services.AddMvc();
-            
-           services.AddCognitoIdentity();
-            
+          
             services.ConfigureApplicationCookie(options =>
             {
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
                 options.LoginPath = "/Accounts/Login";
+                options.SlidingExpiration = true;
             });
             
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IFileUploader, S3FileUploader>();
             services.AddHttpClient<IAdvertApiClient, AdvertApiClient>()
-                .AddPolicyHandler(GetRetryPolicy())
-                .AddPolicyHandler(GetCircuitBreakerPolicy());
+               .AddPolicyHandler(GetRetryPolicy())
+               .AddPolicyHandler(GetCircuitBreakerPolicy());
             services.AddControllersWithViews();
         }
 
@@ -80,10 +82,13 @@ namespace AdvertApi.Management.Web
                 app.UseExceptionHandler("/Home/Error");
             }
             
+           
+          
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
             app.UseAuthentication();
+         
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
