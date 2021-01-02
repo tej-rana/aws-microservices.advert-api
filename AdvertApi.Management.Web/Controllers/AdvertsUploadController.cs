@@ -24,9 +24,8 @@ namespace AdvertApi.Management.Web.Controllers
             _advertApiClient = advertApiClient;
             _mapper = mapper;
         }
-
-        //TODO: Fix issue with this later
-        // [Authorize]
+      
+        [Authorize]
         public IActionResult Create(CreateAdvertViewModel model)
         {
             return View(model);

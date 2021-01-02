@@ -15,8 +15,7 @@ namespace AdvertApi.Management.Web.Controllers
             _logger = logger;
         }
         
-        //TODO: Fix issue with this later
-       // [Authorize]
+        [Authorize]
         [ResponseCache(Duration = 60)]
         public IActionResult Index()
         {
