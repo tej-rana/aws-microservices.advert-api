@@ -27,6 +27,10 @@ namespace AdvertApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllOrigin", policy=> policy.WithOrigins("*").AllowAnyHeader());
+            });
             var awsOptions = Configuration.GetAWSOptions();
             services.AddDefaultAWSOptions(awsOptions);
             services.AddAWSService<IAmazonDynamoDB>();
@@ -35,6 +39,7 @@ namespace AdvertApi
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddHealthChecks().AddCheck<StorageHealthCheck>("Storage");
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +59,8 @@ namespace AdvertApi
             });
 
             app.UseRouting();
+            
+            app.UseCors("AllOrigin");
 
             app.UseAuthorization();
 

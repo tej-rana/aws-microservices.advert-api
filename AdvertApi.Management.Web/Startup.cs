@@ -52,9 +52,13 @@ namespace AdvertApi.Management.Web
             
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IFileUploader, S3FileUploader>();
+            
             services.AddHttpClient<IAdvertApiClient, AdvertApiClient>()
-               .AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetRetryPolicy())
                .AddPolicyHandler(GetCircuitBreakerPolicy());
+            services.AddHttpClient<ISearchApiClient, SearchApiClient>().AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy());
+            
             services.AddControllersWithViews();
         }
 

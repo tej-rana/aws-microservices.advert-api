@@ -1,0 +1,21 @@
+@model AdvertApi.Management.Web.Models.Home.IndexViewModel
+@using Microsoft.Extensions.Configuration;
+@inject IConfiguration configuration
+
+@{
+    var advertImageUrl = configuration.GetValue<string>("ImageBaseUrl");
+}
+
+<div class="card">
+    <a href="#" class="boxClick" data-id="@Model.Id">
+        @{
+            var defaultImageUrl = "https://camblycontent.files.wordpress.com/2017/02/advertising-word-block.jpg";
+            var imageUrl = string.IsNullOrEmpty(Model.Image) ? defaultImageUrl :
+                $"{advertImageUrl}/{Model.Image}";
+        }
+        <img src="@imageUrl" alt="Avatar" style="width:100%">
+        <div class="container">
+            <p>@Model.Title</p>
+        </div>
+    </a>
+</div>
