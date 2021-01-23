@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="amazon-cognito-auth.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        var id_token = null;
+
+        function InitCognitoSdk() {
+
+            var authData = {
+                ClientId: '1as08trfao6nulc4om3g93a7hl', // Your client id here
+                AppWebDomain: 'tsadvertapi.auth.us-east-2.amazoncognito.com', // Exclude the "https://" part.
+                TokenScopesArray: ['openid', 'profile'], // like ['openid','email','phone']...
+                RedirectUriSignIn: 'http://localhost/',
+                RedirectUriSignOut: 'http://localhost/',
+                IdentityProvider: 'Cognito User Pool',
+                UserPoolId: 'us-east-2_31gFGyG6X', //your user pool id
+                AdvancedSecurityDataCollectionFlag: false
+            }
+
+            var CognitoAuth = new AmazonCognitoIdentity.CognitoAuth(authData);
+
+            CognitoAuth.userhandler = {
+                onSuccess: function (result) {
+                    alert("Sign in success");
+                    id_token = result.getIdToken().getJwtToken();
+                    calltoApi(id_token);
+                },
+                onFailure: function (err) {
+                    alert("Error!" + err);
+                }
+            };
+
+            return CognitoAuth;
+        }
+
+        function login() {
+            var auth = InitCognitoSdk();
+            auth.getSession();
+        }
+
+        function onLoad() {
+
+            alert('page loading...');
+            var auth = InitCognitoSdk();
+            var curUrl = window.location.href;
+            if (curUrl != null) {
+                auth.parseCognitoWebResponse(curUrl);
+            }
+        }
+
+        function calltoApi(token) {
+
+            $.ajax({
+
+                type: "GET",
+                url: "https://localhost:15001/api",  //put your own api url here
+                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization','Bearer '+ id_token); },
+                success: function (result) {
+                    $("#result").append(result + " </br>");
+                },
+                error: function (result) {
+                    //handle the error 
+                }
+            })
+        }
+    </script>
+</head>
+
+<body onload="onLoad()">
+
+<h1>
+    Click on the button below to make a call to /adverts/v1/all
+</h1>
+
+<button onclick="login()">Login with Cognito</button>
+
+<p id="result">
+
+</p>
+</body>
+
+</html>
