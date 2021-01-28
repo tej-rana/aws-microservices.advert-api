@@ -1,0 +1,11 @@
+.env
+.git
+.gitignore
+**/.vscode
+**/.vs
+**/bin
+**/obj
+**/out
+**/.toolstarget
+.dotnet
+.Microsoft.DotNet.ImageBuilder
